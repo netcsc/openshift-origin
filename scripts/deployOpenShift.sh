@@ -440,7 +440,7 @@ cat >> /etc/ansible/hosts <<EOF
 EOF
 
 echo $(date) " - Cloning openshift-ansible repo for use in installation"
-runuser -l $SUDOUSER -c "git clone https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible && git checkout release-3.6"
+runuser -l $SUDOUSER -c "git clone https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible && cd /home/$SUDOUSER/openshift-ansible && git checkout release-3.6 && cd ~"
 
 echo $(date) " - Running network_manager.yml playbook" 
 DOMAIN=`domainname -d` 
